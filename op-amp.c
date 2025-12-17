@@ -5,8 +5,7 @@
 #include <errno.h>
 #include "op-amp.h"
 
-//gcc Op-amps/main.c Op-amps/op-amp.c -o opamp_calculator
-//./opamp_calculator
+
 
 
 /* ======================================================== 
