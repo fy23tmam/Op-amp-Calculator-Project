@@ -1,36 +1,44 @@
-# ELEC2645 Unit 2 Project Template
-
-** PLEASE DELETE THIS README AND REPLACE IT WITH YOUR OWN README.md FILE DESCRIBING YOUR PROJECT **
-
-
-This is the basic code for a command line application which you should use for your Unit 2 project.
-
-The code has separated the menu handling code in `main.c` and the function implementations in `funcs.c`. You should add your code to `funcs.c` (or you can create new files if you wish), and update `main.c` to call your functions from the menu.
+Op-Amp Gain Calculator 
+This application is a command-line tool that calculates the gain of several types of operational-amplifier configurations. 
+It provides safe input handling, file saving features, and easy way to navigate menu system.  
 
 
-### 1 Run code
+Features 
+1. Inverting Amplifier 
+- Calculate gain using Rin and Rf 
+- Reverse calculation: compute Rf needed for a chosen gain 
 
-You can build the code as we have been using in the labs with 
-`gcc main.c funcs.c -o main.out -lm` (the `-lm` is required to link the math library). You can also use `make -B` to force a rebuild using the provided `Makefile`.
+2. Non-Inverting Amplifier 
+- Calculate gain from resistor values 
+- Reversed calculation: compute Rf needed for a chosen gain 
 
-Then run the code with `./main.out`
+3. Attenuating Amplifier 
+- Computes attenuation ratio using R1 and R2 
 
+4. Summing Amplifier (3-input) 
+- Calculates the total gain using R1, R2, R3, and Rf 
 
-### 2 The assignment
+5. File handling 
+- Save calculation results to results.txt 
+- View all saved results from the menu 
+- Clear saved results (reset the file) 
 
-Please read the assignment brief on the Minerva page for details of what you need to implement. 
+ 
+How the program works 
+1.Program starts in main.c 
+The main file displays the intractive menu and waits for the user to choose an option. 
 
+2.User input is safely validated 
+All numerical entries are processed using custom helper functions like (read_int() and read_double()), preventing crashes from invalid inputs like letters or symbols. 
 
+3.Menu item functions perform calculations 
+Each amplifier mode has its own function inside (op-amp.c), which performs the correct formulas and prints the results. 
 
-### 3 Test command
+4.Users can view or clear stored results 
+After each calculation, the program stores a formatted summary inside results.txt. 
 
-The `test.sh` script is provided to check that your code compiles correctly. This is what the autograder will use to check your submission. You can run it with `bash test.sh` or `./test.sh` or just `make test`. 
+5.Users can view or clear stored results 
+Menu items allow reviewing past calculations or resetting the file entirely. 
 
-You do not need to modify this script, but you can look at it to see what it does.
-
-
-### 4 Submit Solution
-
-Use the same method as previous labs to commit and push your code to your GitHub repository for the autograder to check. 
-
-In your final journal post, please include a link to your GitHub repository containing your code  *and* a zip file of your code as an attachment.
+6.Program loops back to the main menu 
+After each operation, the user can return by passing ‘b’ or ‘B’, keeping the program running until ‘Exit’ is selected. 

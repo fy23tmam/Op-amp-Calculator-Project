@@ -1,6 +1,7 @@
-// ELEC2645 Unit 2 Project Template
-// Command Line Application Menu Handling Code
-//gcc Op-amps/main.c Op-amps/op-amp.c -o opamp_calculator
+// ELEC2645 Unit 2 Project / Op-Amp Gain Calculator
+//Compilation:
+//gcc main.c op-amp.c -o opamp_calculator
+//Run:
 //./opamp_calculator
 
 
